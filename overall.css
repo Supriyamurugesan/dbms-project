@@ -1,0 +1,38 @@
+body {
+     /* Replace 'your-background-image.jpg' with the actual image file path */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: 'Arial', sans-serif;
+    color: #fff; /* Set text color to white for better readability on the background */
+}
+
+.container {
+    background-color: rgba(0, 0, 0, 0.7); /* Adjust the alpha channel for background transparency */
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+h2 {
+    color: #fff; /* Set heading color to white */
+}
+
+table {
+    color: #fff; /* Set table text color to white */
+}
+
+th,
+td {
+    border: 1px solid #fff; /* Set border color to white */
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #343a40; /* Set header background color */
+}
+
+.btn {
+    margin-top: 10px;
+}

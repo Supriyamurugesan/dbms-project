@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>online course details</title>
+    <style>
+        /* Your existing CSS styles */
+        /* ... */
+    </style>
+</head>
+<body>
+    <h1>online course details</h1>
+
+    <form id="insertForm" action="http://localhost:8000/store-person" method="POST">
+        <label for="name">enrollment_id:</label>
+        <input type="text" name="enrollment_id" required><br><br>
+        <label for="address">id:</label>
+        <input type="text" name="id" required><br><br>
+        <label for="email">course_name:</label>
+        <input type="email" name="course_name" required><br><br>
+        <label for="date_of_birth">instructor_name:</label>
+        <input type="date" name="instructor_name" required><br><br>
+        <input type="submit" value="Insert Data">
+    </form>
+
+    <table>
+        <caption>student and course details</caption>
+        <thead>
+            <tr>
+                <th>enrollment_id </th>
+                <th>id</th>
+                <th>course_name</th>
+                <th>instructor_name</th>
+                
+            </tr>
+        </thead>
+        <tbody id="joinedDataBody">
+            <!-- Table body will be dynamically filled with joined data -->
+        </tbody>
+    </table>
+
+    <script>
+        fetch('http://localhost:8000/all-joined-data')
+            .then(response => response.json())
+            .then(data => {
+                const joinedDataBody = document.getElementById('joinedDataBody');
+
+                data.forEach(record => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${record.enrollment_id}</td>
+                        <td>${record.id}</td>
+                        <td>${record.course_name}</td>
+                        <td>${record.instructor_name}</td>
+                
+                        <!-- Rest of your row data remains the same... -->
+                    `;
+                    joinedDataBody.appendChild(row);
+                });
+            })
+            .catch(error => console.error('Error fetching joined data:', error));
+    </script>
+</body>
+</html>
